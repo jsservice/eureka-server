@@ -1,0 +1,16 @@
+spring:
+    application:
+        name: eureka-server
+server:
+    port: 8761
+eureka:
+    instance:
+        hostname: localhost
+    server:
+        enable-self-preservation: false #是否开启自我保护模式
+        eviction-interval-timer-in-ms: 30000  #指定EvictionTask定时任务的调度频率，用于剔除过期的实例
+    client:
+        register-with-eureka: false # 是否注册到eurekaserver
+        fetch-registry: false # 是否拉取信息
+        service-url:
+            defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
